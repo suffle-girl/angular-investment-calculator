@@ -3,8 +3,8 @@ import { ResultsData, UserInputData } from './investment-input.model';
 
 @Injectable({ providedIn: 'root' })
 export class InvestmentService {
-  // resultsData = signal<ResultsData[] | undefined>(undefined);
-  resultsData: ResultsData[] | undefined;
+  resultsData = signal<ResultsData[] | undefined>(undefined);
+  // resultsData: ResultsData[] | undefined;
 
   calculateInvestmentResults(data: UserInputData) {
     const { initialInvestment, duration, expectedReturn, annualInvestment } =
@@ -28,7 +28,7 @@ export class InvestmentService {
       });
     }
 
-    // this.resultsData.set(annualData);
-    this.resultsData = annualData;
+    this.resultsData.set(annualData);
+    // this.resultsData = annualData;
   }
 }
